@@ -2,10 +2,65 @@
 <html>
 <head>
   <title>Recursive Robotics</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    img {
+      display: block;
+      margin: 50px auto 0 auto;
+      max-width: calc(100% - 100px);
+      height: auto;
+    }
+    a img {
+      border: none;
+    }
+    h1 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      color: gray;
+      font-size: 3.5em;
+    }
+    #tagline-verb {
+      display: inline-block;
+      transition: opacity 0.35s ease-in-out;
+      opacity: 1;
+      min-width: 10ch;
+      text-align: left;
+    }
+    #tagline-verb.fading {
+      opacity: 0.35;
+    }
+    p {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    }
+    p:first-of-type {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Robots Building Robots For Humans</h1>
-  <p>info@recursiverobotics.ai</p>
-  <img src="rr_splash_page.jpeg" alt="RR Image" style="max-width: 100%;">
+  <a href="mailto:info@recursiverobotics.ai"><img src="rr_splash_page.jpeg" alt="RR Image"></a>
+  <h1>Robots <span id="tagline-verb">Building</span> Robots For Humans</h1>
+  <p><a href="mailto:info@recursiverobotics.ai" style="color: white; text-decoration: none; font-size: 1.3em;">info@recursiverobotics.ai</a></p>
+  <p>Copyright © 2026 Recursive Robotics - All Rights Reserved.</p>
+  <script>
+    const rotatingWords = ["BUILDING", "DESIGNING", "SIMULATING", "TRAINING", "TESTING", "OPERATING"];
+    const taglineVerb = document.getElementById("tagline-verb");
+    let currentWordIndex = 0;
+
+    setInterval(() => {
+      taglineVerb.classList.add("fading");
+      setTimeout(() => {
+        currentWordIndex = (currentWordIndex + 1) % rotatingWords.length;
+        taglineVerb.textContent = rotatingWords[currentWordIndex];
+        taglineVerb.classList.remove("fading");
+      }, 175);
+    }, 3000);
+  </script>
 </body>
 </html>
