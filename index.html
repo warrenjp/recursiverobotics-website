@@ -37,6 +37,67 @@
     #tagline-verb.fading {
       opacity: 0.35;
     }
+    .milestone-checklist {
+      display: inline-block;
+      margin: 8px auto 28px auto;
+      padding-left: 8px;
+      text-align: left;
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1.18em;
+      line-height: 2.15;
+    }
+    .milestone-item {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin: 0.4em 0;
+    }
+    .milestone-checklist .milestone-checkbox {
+      position: absolute;
+      opacity: 0;
+      width: 40px;
+      height: 40px;
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      z-index: 1;
+      cursor: default;
+    }
+    .milestone-checkbox-ui {
+      position: relative;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+      border: 2px solid #a8a8a8;
+      border-radius: 4px;
+      background: rgba(20, 20, 20, 0.85);
+      overflow: visible;
+    }
+    .milestone-checklist .milestone-checkbox:checked + .milestone-checkbox-ui {
+      border-color: #d0d0d0;
+      background: rgba(32, 32, 32, 0.95);
+    }
+    /* Crisp rounded check via SVG (avoids thick rotated borders + glow artifacts) */
+    .milestone-checklist .milestone-checkbox:checked + .milestone-checkbox-ui::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 28px;
+      height: 28px;
+      background: center / contain no-repeat
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7%2013L11%2017L18%207'/%3E%3C/svg%3E");
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.35));
+      pointer-events: none;
+    }
+    .milestone-checklist .milestone-checkbox:not(:checked) + .milestone-checkbox-ui + .milestone-text {
+      color: #f2f2f2;
+    }
+    .milestone-checklist .milestone-checkbox:checked + .milestone-checkbox-ui + .milestone-text {
+      color: #a9a9a9;
+    }
     p {
       font-family: 'Helvetica Neue', 'Arial', sans-serif;
     }
@@ -49,6 +110,11 @@
 <body>
   <a href="mailto:info@recursiverobotics.ai"><img src="rr_splash_page.jpeg" alt="RR Image"></a>
   <h1>Robots <span id="tagline-verb">Building</span> Robots For Humans</h1>
+  <div class="milestone-checklist">
+    <div><label class="milestone-item"><input class="milestone-checkbox" type="checkbox" checked disabled><span class="milestone-checkbox-ui" aria-hidden="true"></span><span class="milestone-text">Proof of Concept - December 2025</span></label></div>
+    <div><label class="milestone-item"><input class="milestone-checkbox" type="checkbox" disabled><span class="milestone-checkbox-ui" aria-hidden="true"></span><span class="milestone-text">Operational Prototypes - March 2026</span></label></div>
+    <div><label class="milestone-item"><input class="milestone-checkbox" type="checkbox" disabled><span class="milestone-checkbox-ui" aria-hidden="true"></span><span class="milestone-text">First Customer Ship - June 2026</span></label></div>
+  </div>
   <p><a href="mailto:info@recursiverobotics.ai" style="color: white; text-decoration: none; font-size: 1.3em;">info@recursiverobotics.ai</a></p>
   <p>Copyright © 2026 Recursive Robotics - All Rights Reserved.</p>
   <script>
