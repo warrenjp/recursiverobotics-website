@@ -10,8 +10,8 @@
     }
     img {
       display: block;
-      margin: 50px auto 0 auto;
-      max-width: calc(100% - 100px);
+      margin: 30px auto 0 auto;
+      max-width: min(72vw, 900px);
       height: auto;
     }
     a img {
@@ -28,8 +28,10 @@
       display: inline-block;
       transition: opacity 0.35s ease-in-out;
       opacity: 1;
-      min-width: 10ch;
-      text-align: left;
+      width: 10ch;
+      text-align: center;
+      color: #c0c0c0;
+      text-shadow: 0 0 4px rgba(192, 192, 192, 0.35);
     }
     #tagline-verb.fading {
       opacity: 0.35;
